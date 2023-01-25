@@ -14,7 +14,7 @@ class BankA extends Main {
 
     public void deposit(double amount) {
         balance += amount;
-        System.out.println(balance);
+        logger.log(balance);
     }
 
     public void withdraw(double amount) {
@@ -27,19 +27,19 @@ class BankA extends Main {
     }
 
     public double getBalance() {
-        System.out.println(this.accountHolderName);
-        System.out.println(this.accountNumber);
+        logger.log(this.accountHolderName);
+        logger.log(this.accountNumber);
         return balance;
     }
 }
 class Main {
     public static void main(String[] args) {
         Scanner se = new Scanner(System.in);
-        System.out.println("enter your name :");
+        logger.log("enter your name :");
         String accountHolderName = se.next();
-        System.out.println("enter your acc  number :");
+        logger.log("enter your acc  number :");
         int accountNumber = se.nextInt();
-        System.out.println("Type the balance :");
+        logger.log("Type the balance :");
         int balance = se.nextInt();
 
         Boolean loop=true;
@@ -47,22 +47,21 @@ class Main {
         BankA B1 = new BankA(accountHolderName,accountNumber,balance);
 
         while(loop==true){
-            System.out.println("\n choose a option");
-            System.out.println("\t1.Deposit \n 2.Withdraw \n 3.Balance \n");
+            logger.log("\n choose a option");
+            logger.log("\t1.Deposit \n 2.Withdraw \n 3.Balance \n");
 
             int ch = se.nextInt();
             switch(ch){
                 case 1:
                 {
-                    System.out.println("enter the amount:");
                     int am=se.nextInt();
-                    System.out.println("Balance amount now is:");
+                    logger.log("Balance amount now is:");
                     B1.deposit(am);
                     break;
                 }
                 case 2:
                 {
-                    System.out.println("enter the amount:");
+                    logger.log("enter the amount:");
                     int am=se.nextInt();
 
                     B1.withdraw(am);
@@ -71,7 +70,7 @@ class Main {
                 case 3 :
                 {
 
-                    System.out.println("\n the balance amount now is" +B1.getBalance());
+                    logger.log("\n the balance amount now is" +B1.getBalance());
                     break;
                 }
                 default:
