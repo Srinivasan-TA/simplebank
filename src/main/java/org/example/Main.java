@@ -19,10 +19,10 @@ class BankA extends Main {
 
     public void withdraw(double amount) {
         if (amount > balance) {
-            System.out.println("Insufficient funds");
+            logger.log("Insufficient funds");
         } else {
             balance -= amount;
-            System.out.println(balance);
+            logger.log(balance);
         }
     }
 
