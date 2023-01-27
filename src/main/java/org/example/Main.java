@@ -74,10 +74,8 @@ class Main {
                     break;
                 }
                 default:
-                {
-                    loop=false;
-                }
-                se.close();    }
+              se.close();
+            }
         }
     }
 }
