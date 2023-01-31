@@ -3,6 +3,8 @@ package org.example;
 import java.util.*;
 import java.util.logging.Logger;
 
+import static java.lang.String.valueOf;
+
 class BankA extends Main {
     private String accountHolderName;
     private int accountNumber;
@@ -17,7 +19,7 @@ class BankA extends Main {
 
     public void deposit(double amount) {
         balance += amount;
-        l.info(String.valueOf(balance));
+        l.info(valueOf(balance));
     }
 
     public void withdraw(double amount) {
@@ -25,13 +27,12 @@ class BankA extends Main {
             l.info("Insufficient funds");
         } else {
             balance -= amount;
-            l.info(""+balance);
         }
     }
 
     public double getBalance() {
         l.info(this.accountHolderName);
-        l.info(""+this.accountNumber);
+        l.info(valueOf(this.accountNumber));
         return balance;
     }
 }
