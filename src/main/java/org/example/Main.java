@@ -45,37 +45,36 @@ class Main {
         l.info("Type the balance :");
         int balance = se.nextInt();
 
-        BankA bWw2 = new BankA(accountHolderName,accountNumber,balance);
+        BankA bWw2 = new BankA(accountHolderName, accountNumber, balance);
 
-
+        while (true) {
             l.info("\n choose a option");
             l.info("\t1.Deposit \n 2.Withdraw \n 3.Balance \n");
 
             int ch = se.nextInt();
-            switch(ch){
-                case 1:
-                {
-                    int am=se.nextInt();
+            switch (ch) {
+                case 1: {
+                    int am = se.nextInt();
                     l.info("Balance amount now is:");
                     bWw2.deposit(am);
                     break;
                 }
-                case 2:
-                {
+                case 2: {
                     l.info("enter the amount:");
-                    int am=se.nextInt();
+                    int am = se.nextInt();
 
                     bWw2.withdraw(am);
                     break;
                 }
-                case 3 :
-                {
+                case 3: {
 
-                    l.info("\n the balance amount now is" +bWw2.getBalance());
+                    l.info("\n the balance amount now is" + bWw2.getBalance());
                     break;
                 }
                 default:
-              se.close();
+                    se.close();
+                    System.exit(0);
             }
         }
     }
+}
