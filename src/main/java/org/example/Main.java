@@ -7,6 +7,7 @@ class BankA extends Main {
     private String accountHolderName;
     private int accountNumber;
     private double balance;
+    Logger l = Logger.getLogger("com.api.jar");
 
     public BankA(String accountHolderName, int accountNumber, double balance) {
         this.accountHolderName = accountHolderName;
@@ -16,65 +17,64 @@ class BankA extends Main {
 
     public void deposit(double amount) {
         balance += amount;
-        logger.log(balance);
+        l.info(String.valueOf(balance));
     }
 
     public void withdraw(double amount) {
         if (amount > balance) {
-            logger.log("Insufficient funds");
+            l.info("Insufficient funds");
         } else {
             balance -= amount;
-            logger.log(balance);
+            l.info(String.valueOf(balance));
         }
     }
 
     public double getBalance() {
-        logger.log(this.accountHolderName);
-        logger.log(this.accountNumber);
+        l.info(this.accountHolderName);
+        l.info(String.valueOf(this.accountNumber));
         return balance;
     }
 }
 class Main {
     public static void main(String[] args) {
         Logger l = Logger.getLogger("com.api.jar");
-
         Scanner se = new Scanner(System.in);
-        logger.log("enter your name :");
+        l.info("enter your name :");
         String accountHolderName = se.next();
-        logger.log("enter your acc  number :");
+        l.info("enter your acc  number :");
         int accountNumber = se.nextInt();
-        logger.log("Type the balance :");
+        l.info("Type the balance :");
         int balance = se.nextInt();
 
         Boolean loop=true;
 
-        BankA B = new BankA(accountHolderName,accountNumber,balance);
+        BankA Bw2 = new BankA(accountHolderName,accountNumber,balance);
 
         while(loop==true){
-            logger.log("\n choose a option");
-            logger.log("\t1.Deposit \n 2.Withdraw \n 3.Balance \n");
+            l.info("\n choose a option");
+            l.info("\t1.Deposit \n 2.Withdraw \n 3.Balance \n");
 
             int ch = se.nextInt();
             switch(ch){
                 case 1:
                 {
                     int am=se.nextInt();
-                    logger.log("Balance amount now is:");
-                    B.deposit(am);
+                    l.info("Balance amount now is:");
+                    Bw2.deposit(am);
                     break;
                 }
                 case 2:
                 {
-                    logger.log("enter the amount:");
+                    l.info("enter the amount:");
                     int am=se.nextInt();
 
-                    B.withdraw(am);
+                    Bw2.withdraw(am);
                     break;
                 }
                 case 3 :
                 {
 
-                    logger.log("\n the balance amount now is" +B.getBalance());
+                    l.info("\n the balance amount now is" +Bw2.getBalance());
                     break;
                 }
                 default:
