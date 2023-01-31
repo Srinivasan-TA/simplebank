@@ -19,7 +19,6 @@ class BankA extends Main {
 
     public void deposit(double amount) {
         balance += amount;
-        l.info(valueOf(balance));
     }
 
     public void withdraw(double amount) {
@@ -32,7 +31,6 @@ class BankA extends Main {
 
     public double getBalance() {
         l.info(this.accountHolderName);
-        l.info(valueOf(this.accountNumber));
         return balance;
     }
 }
