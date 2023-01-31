@@ -25,7 +25,7 @@ class BankA extends Main {
             l.info("Insufficient funds");
         } else {
             balance -= amount;
-            l.info(":"+balance);
+            l.info(""+balance);
         }
     }
 
@@ -45,8 +45,6 @@ class Main {
         int accountNumber = se.nextInt();
         l.info("Type the balance :");
         int balance = se.nextInt();
-
-        Boolean loop=true;
 
         BankA bWw2 = new BankA(accountHolderName,accountNumber,balance);
 
