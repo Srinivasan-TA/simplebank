@@ -3,8 +3,6 @@ package org.example;
 import java.util.*;
 import java.util.logging.Logger;
 
-import static java.lang.String.valueOf;
-
 class BankA extends Main {
     private String accountHolderName;
     private int accountNumber;
