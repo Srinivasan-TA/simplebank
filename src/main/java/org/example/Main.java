@@ -25,13 +25,13 @@ class BankA extends Main {
             l.info("Insufficient funds");
         } else {
             balance -= amount;
-            l.info(String.valueOf(balance));
+            l.info(":"+balance);
         }
     }
 
     public double getBalance() {
         l.info(this.accountHolderName);
-        l.info(String.valueOf(this.accountNumber));
+        l.info(""+this.accountNumber);
         return balance;
     }
 }
@@ -48,9 +48,9 @@ class Main {
 
         Boolean loop=true;
 
-        BankA Bw2 = new BankA(accountHolderName,accountNumber,balance);
+        BankA bWw2 = new BankA(accountHolderName,accountNumber,balance);
 
-        while(loop==true){
+
             l.info("\n choose a option");
             l.info("\t1.Deposit \n 2.Withdraw \n 3.Balance \n");
 
@@ -60,7 +60,7 @@ class Main {
                 {
                     int am=se.nextInt();
                     l.info("Balance amount now is:");
-                    Bw2.deposit(am);
+                    bWw2.deposit(am);
                     break;
                 }
                 case 2:
@@ -68,13 +68,13 @@ class Main {
                     l.info("enter the amount:");
                     int am=se.nextInt();
 
-                    Bw2.withdraw(am);
+                    bWw2.withdraw(am);
                     break;
                 }
                 case 3 :
                 {
 
-                    l.info("\n the balance amount now is" +Bw2.getBalance());
+                    l.info("\n the balance amount now is" +bWw2.getBalance());
                     break;
                 }
                 default:
@@ -82,4 +82,3 @@ class Main {
             }
         }
     }
-}
