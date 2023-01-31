@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.*;
+import java.util.logging.Logger;
+
 class BankA extends Main {
     private String accountHolderName;
     private int accountNumber;
@@ -34,6 +36,8 @@ class BankA extends Main {
 }
 class Main {
     public static void main(String[] args) {
+        Logger l = Logger.getLogger("com.api.jar");
+
         Scanner se = new Scanner(System.in);
         logger.log("enter your name :");
         String accountHolderName = se.next();
@@ -44,7 +48,7 @@ class Main {
 
         Boolean loop=true;
 
-        BankA B1 = new BankA(accountHolderName,accountNumber,balance);
+        BankA B = new BankA(accountHolderName,accountNumber,balance);
 
         while(loop==true){
             logger.log("\n choose a option");
@@ -56,7 +60,7 @@ class Main {
                 {
                     int am=se.nextInt();
                     logger.log("Balance amount now is:");
-                    B1.deposit(am);
+                    B.deposit(am);
                     break;
                 }
                 case 2:
@@ -64,13 +68,13 @@ class Main {
                     logger.log("enter the amount:");
                     int am=se.nextInt();
 
-                    B1.withdraw(am);
+                    B.withdraw(am);
                     break;
                 }
                 case 3 :
                 {
 
-                    logger.log("\n the balance amount now is" +B1.getBalance());
+                    logger.log("\n the balance amount now is" +B.getBalance());
                     break;
                 }
                 default:
